@@ -1,0 +1,66 @@
+========================================================================
+
+Autor: £ukasz Cieply                               Krakow, 1.05.2016
+
+========================================================================
+
+Cwiczenie 7
+Przy pomocy pamieci dzielonej oraz semaforow Systemu V UNIX zaimplementowac
+problem ,,Producenta–Konsumenta”. Zamiast potoku uzyc
+N-elementowego bufora cyklicznego (tzn. po dojsciu do konca bufora wracamy na jego
+poczatek) umieszczonego w pamieci dzielonej, gdzie elementem bufora jest pewna ustalona
+porcja bajtow. Dostep do wspolnego bufora synchronizowac przy pomocy semaforow
+
+* Zawartosc:
+
+============
+
+
+
+Katalog zawiera programy relizujace cwiczenie 7 z procesów C:
+
+--------------------------------------------------------------------
+
+
+	Program producent tworzy zbior 4 semaforow oraz pamiec wspoldzielona.
+ 	1-semafor ilosci miejsca (poczatkowa wartosc - rozmiarBufora)
+	2-semafor ilosc danych w buforze (poczatkowa wartosc - 0)
+	3-semafor ochrony przed jednoczesnym zapisem (pocz wartosc - 1)
+	4-semafor ochrony przed jednoczesnym odczytem (pocz wartosc -1)
+
+	Pamiec wspoldzielona dzieli sie na 3 czesci.
+	pierwsza czesc to psedo-wskaznik zapisu
+	druga to pseudo-wskaznik odczytu
+	trzecia to burfor cykliczny
+
+	Pseudo-wskaznik to liczba (int) reprezentujaca miejsce w buforze
+	cykliczym na ktore powinien wskazywac rzeczywisty wskaznik
+
+	Program dzieli sie na dwa podprocesy z ktorych jeden wpisuje dane w
+	odpowiednie miejsce(pseudo-wskazniki) w buforze a drugi je odczytuje
+	Mozliwe jest wlaczenie programu w trybie tylko odczytu lub
+	tylko zapiu podajac odpowiednio argument r lub w
+	W ten sposob program moze wspoldzielic pamiec z dowolna liczba zapisujacych i
+	odczytujacych procesow
+------------------------------------------------------------------------
+
+
+
+* Jak uruchomic program:
+
+=========================
+
+
+
+Katalog zawiera program Makefile do kompilacji, linkowania podanych programow.
+
+W celu kompilacji nalezy uzyc komendy
+
+	make
+
+W celu kompilacji biblioteki jaka biblioteki dynamicznej
+
+	make dynamiczna
+
+
+========================================================================
