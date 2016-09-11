@@ -4,6 +4,9 @@ Autor: £ukasz Cieply                               Krakow, 1.05.2016
 
 ========================================================================
 
+Przepraszam za kiepski wygląd kodu(losowe tab,spacje) program był pisany w
+całości w nano przez ssh
+
 Cwiczenie 7
 Przy pomocy pamieci dzielonej oraz semaforow Systemu V UNIX zaimplementowac
 problem ,,Producenta–Konsumenta”. Zamiast potoku uzyc
